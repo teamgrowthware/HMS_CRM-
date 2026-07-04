@@ -32,7 +32,7 @@ export default function Leads() {
 
   const fetchLeads = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/leads');
+      const response = await fetch('https://hms-crm-backend.onrender.com/api/leads');
       const data = await response.json();
       setLeads(data);
     } catch (error) {
@@ -50,7 +50,7 @@ export default function Leads() {
   const handleCreateLead = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5001/api/leads', {
+      const response = await fetch('https://hms-crm-backend.onrender.com/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

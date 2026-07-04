@@ -17,7 +17,7 @@ export default function Contacts() {
   });
 
   const fetchContacts = () => {
-    fetch('http://localhost:5001/api/contacts')
+    fetch('https://hms-crm-backend.onrender.com/api/contacts')
       .then(res => res.json())
       .then(data => setContacts(data))
       .catch(err => console.error(err));
@@ -33,7 +33,7 @@ export default function Contacts() {
 
   const handleCreateContact = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/contacts', {
+      const response = await fetch('https://hms-crm-backend.onrender.com/api/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

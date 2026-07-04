@@ -5,7 +5,7 @@ export default function Calls() {
   const [calls, setCalls] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/calls')
+    fetch('https://hms-crm-backend.onrender.com/api/calls')
       .then(res => res.json())
       .then(data => setCalls(data))
       .catch(err => console.error(err));

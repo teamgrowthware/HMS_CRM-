@@ -49,12 +49,12 @@ export default function LeadDetail() {
   const fetchLeadData = async () => {
     try {
       const [leadRes, notesRes, tasksRes, callsRes, emailsRes, whatsappRes] = await Promise.all([
-        fetch(`http://localhost:5001/api/leads/${id}`),
-        fetch(`http://localhost:5001/api/notes?leadId=${id}`),
-        fetch(`http://localhost:5001/api/tasks?leadId=${id}`),
-        fetch(`http://localhost:5001/api/calls?leadId=${id}`),
-        fetch(`http://localhost:5001/api/emails?leadId=${id}`),
-        fetch(`http://localhost:5001/api/whatsapp?leadId=${id}`)
+        fetch(`https://hms-crm-backend.onrender.com/api/leads/${id}`),
+        fetch(`https://hms-crm-backend.onrender.com/api/notes?leadId=${id}`),
+        fetch(`https://hms-crm-backend.onrender.com/api/tasks?leadId=${id}`),
+        fetch(`https://hms-crm-backend.onrender.com/api/calls?leadId=${id}`),
+        fetch(`https://hms-crm-backend.onrender.com/api/emails?leadId=${id}`),
+        fetch(`https://hms-crm-backend.onrender.com/api/whatsapp?leadId=${id}`)
       ]);
       setLead(await leadRes.json());
       setNotes(await notesRes.json());
@@ -68,23 +68,23 @@ export default function LeadDetail() {
   };
 
   const handleCreateNote = async () => {
-    await fetch('http://localhost:5001/api/notes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, title: noteTitle, content: noteContent }) });
+    await fetch('https://hms-crm-backend.onrender.com/api/notes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, title: noteTitle, content: noteContent }) });
     setNoteTitle(''); setNoteContent(''); setIsNoteModalOpen(false); fetchLeadData();
   };
   const handleCreateTask = async () => {
-    await fetch('http://localhost:5001/api/tasks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, title: taskTitle, description: taskDesc, date: taskDate, priority: true }) });
+    await fetch('https://hms-crm-backend.onrender.com/api/tasks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, title: taskTitle, description: taskDesc, date: taskDate, priority: true }) });
     setTaskTitle(''); setTaskDesc(''); setTaskDate(''); setIsTaskModalOpen(false); fetchLeadData();
   };
   const handleCreateCall = async () => {
-    await fetch('http://localhost:5001/api/calls', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, duration: '45s' }) });
+    await fetch('https://hms-crm-backend.onrender.com/api/calls', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, duration: '45s' }) });
     setIsCallModalOpen(false); fetchLeadData();
   };
   const handleCreateEmail = async () => {
-    await fetch('http://localhost:5001/api/emails', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, to: emailTo || lead?.email, subject: emailSubject, body: emailBody }) });
+    await fetch('https://hms-crm-backend.onrender.com/api/emails', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, to: emailTo || lead?.email, subject: emailSubject, body: emailBody }) });
     setEmailSubject(''); setEmailBody(''); setIsEmailModalOpen(false); fetchLeadData();
   };
   const handleCreateWhatsapp = async (msg?: string) => {
-    await fetch('http://localhost:5001/api/whatsapp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, message: msg || whatsappMsg }) });
+    await fetch('https://hms-crm-backend.onrender.com/api/whatsapp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leadId: id, message: msg || whatsappMsg }) });
     setWhatsappMsg(''); setIsWhatsAppModalOpen(false); fetchLeadData();
   };
 
@@ -565,7 +565,7 @@ export default function LeadDetail() {
               <button 
                 onClick={async () => {
                   try {
-                    await fetch('http://localhost:5001/api/deals', {
+                    await fetch('https://hms-crm-backend.onrender.com/api/deals', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({

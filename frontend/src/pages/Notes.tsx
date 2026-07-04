@@ -5,7 +5,7 @@ export default function Notes() {
   const [notes, setNotes] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/notes')
+    fetch('https://hms-crm-backend.onrender.com/api/notes')
       .then(res => res.json())
       .then(data => setNotes(data))
       .catch(err => console.error(err));

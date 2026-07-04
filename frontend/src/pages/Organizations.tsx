@@ -16,7 +16,7 @@ export default function Organizations() {
   });
 
   const fetchOrganizations = () => {
-    fetch('http://localhost:5001/api/organizations')
+    fetch('https://hms-crm-backend.onrender.com/api/organizations')
       .then(res => res.json())
       .then(data => setOrganizations(data))
       .catch(err => console.error(err));
@@ -32,7 +32,7 @@ export default function Organizations() {
 
   const handleCreateOrganization = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/organizations', {
+      const response = await fetch('https://hms-crm-backend.onrender.com/api/organizations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

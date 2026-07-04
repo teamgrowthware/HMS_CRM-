@@ -5,7 +5,7 @@ export default function Tasks() {
   const [tasks, setTasks] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5001/api/tasks')
+    fetch('https://hms-crm-backend.onrender.com/api/tasks')
       .then(res => res.json())
       .then(data => setTasks(data))
       .catch(err => console.error(err));

@@ -20,7 +20,7 @@ export default function Deals() {
   });
 
   const fetchDeals = () => {
-    fetch('http://localhost:5001/api/deals')
+    fetch('https://hms-crm-backend.onrender.com/api/deals')
       .then(res => res.json())
       .then(data => setDeals(data))
       .catch(err => console.error(err));
@@ -36,7 +36,7 @@ export default function Deals() {
 
   const handleCreateDeal = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/deals', {
+      const response = await fetch('https://hms-crm-backend.onrender.com/api/deals', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export default function Deals() {
 
     // Update Backend
     try {
-      await fetch(`http://localhost:5001/api/deals/${dealId}`, {
+      await fetch(`https://hms-crm-backend.onrender.com/api/deals/${dealId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stage }),
