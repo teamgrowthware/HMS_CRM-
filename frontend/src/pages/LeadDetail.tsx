@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Phone, Mail, Link as LinkIcon, ChevronDown, ChevronRight, 
   Activity, MessageSquare, PhoneCall, CheckSquare, FileText, Plus, Check, X, Building2, UserSquare2,
-  Calendar, Flag, Play, Volume2, MoreVertical, Mic, Paperclip, Smile, Send
+  Calendar, Play, MoreVertical, Mic, Paperclip, Smile, Send
 } from 'lucide-react';
 
 export default function LeadDetail() {

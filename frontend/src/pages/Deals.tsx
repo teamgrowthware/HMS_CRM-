@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Plus, X, Search, Filter, AlignLeft, BarChart2, MoreHorizontal } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 const STAGES = ['Prospecting', 'Qualification', 'Needs Analysis', 'Value Proposition', 'Id. Decision Makers', 'Perception Analysis', 'Proposal/Price Quote', 'Negotiation/Review', 'Closed Won', 'Closed Lost'];
 
 export default function Deals() {
   const [deals, setDeals] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     dealName: '',

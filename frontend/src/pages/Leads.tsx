@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Settings, Filter, ArrowUpDown, Columns, RefreshCcw, MoreHorizontal, ChevronDown, PhoneCall, X } from 'lucide-react';
+import { Plus, Filter, ArrowUpDown, Columns, RefreshCcw, MoreHorizontal, ChevronDown, PhoneCall, X } from 'lucide-react';
 
 export default function Leads() {
   const navigate = useNavigate();
