@@ -34,9 +34,15 @@ export default function Leads() {
     try {
       const response = await fetch('https://hms-crm-backend.onrender.com/api/leads');
       const data = await response.json();
-      setLeads(data);
+      if (Array.isArray(data)) {
+        setLeads(data);
+      } else {
+        console.error('Expected an array of leads but got:', data);
+        setLeads([]);
+      }
     } catch (error) {
       console.error('Error fetching leads:', error);
+      setLeads([]);
     } finally {
       setIsLoading(false);
     }

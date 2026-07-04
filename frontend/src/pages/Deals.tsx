@@ -20,8 +20,18 @@ export default function Deals() {
   const fetchDeals = () => {
     fetch('https://hms-crm-backend.onrender.com/api/deals')
       .then(res => res.json())
-      .then(data => setDeals(data))
-      .catch(err => console.error(err));
+      .then(data => {
+        if (Array.isArray(data)) {
+          setDeals(data);
+        } else {
+          console.error('Expected an array of deals but got:', data);
+          setDeals([]);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        setDeals([]);
+      });
   };
 
   useEffect(() => {
