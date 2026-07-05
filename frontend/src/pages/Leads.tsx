@@ -5,7 +5,7 @@ import { Plus, Filter, ArrowUpDown, Columns, RefreshCcw, MoreHorizontal, Chevron
 export default function Leads() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [leads, setLeads] = useState([]);
+  const [leads, setLeads] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Form State
